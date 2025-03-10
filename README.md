@@ -55,12 +55,12 @@ Alright, now that you are connected to your VM you will have to enable IIS. Simp
 Excellent. Now that you have enabled IIS we need to install Web Platform Installer. I have provided a link here: https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
   That link will provide you with all of the material you need to download to get osTicket up and running. Simply click the link and install the Web Platform Installer
 </p>
-<img src="https://i.imgur.com/AxHCfQ6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
+<img src="https://imgur.com/a/lR9r9RK" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
 </p>
 <p>
 Once you have installed Web Installer Platform open it. From inside the application you are going to install MySQL 5.5 Afterwards install x86 version of PHP up until 7.3. There are some failed files such as C++ redistributable package as well as PHP 7.3.8 and PHP Manager for IIS those files can be found with the install link.
 </p>
-<img src="https://i.imgur.com/JJ8bZeJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/a/lR9r9RK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <p>
 </p>
 <p>
