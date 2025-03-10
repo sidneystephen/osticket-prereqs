@@ -47,7 +47,7 @@ Welcome to my first in-depth IT tutorial! To begin we will have to create a Virt
 <p>
 Alright, now that you are connected to your VM you will have to enable IIS. Simply access the control panel then select uninstall a program. Off to the left select "Turn windows features on or off". A list will appear then you will enable Internet Information Services.
 </p>  
-<img src="https://i.imgur.com/qtEnuWu.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/JmpvP37" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 </p>
