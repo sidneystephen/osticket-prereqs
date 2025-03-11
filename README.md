@@ -3,108 +3,136 @@
 </p>
 
 <h1>osTicket - Prerequisites and Installation</h1>
-This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
-
-
+This tutorial covers the requirements and installation process for the open-source help desk ticketing system, osTicket.<br />
 
 
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
-- Microsoft Remote Desktop (RDP)
+- Remote Desktop
 - Internet Information Services (IIS)
 
 <h2>Operating Systems Used </h2>
 
-- Windows 10</b> 
+- Windows 10</b> (21H2)
 
 <h2>List of Prerequisites</h2>
 
-- Azure Virtual Machine
+- Azure Virtual Machine 
 - osTicket Installation files
 - Heidi SQL
 
 <h2>Installation Steps</h2>
 
 <p>
+<img src="https://i.imgur.com/Iu8EC4s.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
 </p>
 <p>
-Welcome to my first in-depth IT tutorial! To begin we will have to create a Virtual machine using the Microsoft Azure portal(portal.azure.com). We will be using a VM(virtual machine) which is a remote computer. We are using a VM in order to protect our physical machine just in case something malfunctions, and also have a clean slate computer to continually replicate the lab on. Create a resource group and title it "osTicket". Afterwards create a VM with 2-4 CPUs. In this example I will be using 4 CPUs.
-  
- ![Screen Shot 2025-03-09 at 7 55 22 PM](https://github.com/user-attachments/assets/ed12a10a-9446-45c3-b7c0-3e4d5a98b8aa)
-
-</p>
-<br />
-<p>
-</p>
-<p>Next simply connect to your newly created VM using RDP using the public IPv4 address. If you are a Mac user you will have to download Microsoft Remote Desktop(RDP). 
-</p>
-<img src="https://i.imgur.com/uLVKzxS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Create a resource group in Microsoft Azure named osTicket. Then create a virtual machine within this resource group. Use a Windows 10 Pro image for the VM, ensuring it has at least 2 vCPUs. The VM will serve as a space for practice.
 </p>
 <br />
 
 <p>
+<img src="https://i.imgur.com/H2B3g7x.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Alright, now that you are connected to your VM you will have to enable IIS. Simply access the control panel then select uninstall a program. Off to the left select "Turn windows features on or off". A list will appear then you will enable Internet Information Services.
-</p>  
-<img src="https://imgur.com/JmpvP37" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Next, access the VM via Remote Desktop Protocol (RDP). Copy the Public IPv4 address listed in the Azure portal for the VM and use it to establish the RDP connection.
 </p>
 <br />
+
+<p>
+<img src="https://i.imgur.com/2VqhhFo.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Excellent. Now that you have enabled IIS we need to install Web Platform Installer. I have provided a link here: https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6
-  That link will provide you with all of the material you need to download to get osTicket up and running. Simply click the link and install the Web Platform Installer
-</p>
-<img src="https://imgur.com/a/lR9r9RK" height="80%" width="80%" alt="Disk Sanitization Steps"/>  
-</p>
-<p>
-Once you have installed Web Installer Platform open it. From inside the application you are going to install MySQL 5.5 Afterwards install x86 version of PHP up until 7.3. There are some failed files such as C++ redistributable package as well as PHP 7.3.8 and PHP Manager for IIS those files can be found with the install link.
-</p>
-<img src="https://imgur.com/a/lR9r9RK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<p>
-</p>
-<p>
-Next download osTicket. Then extract and copy the "upload" folder into c:\inetpub\wwwroot. Afterwards rename the folder to osTicket
-</P>
-<img src="https://i.imgur.com/TUGiSKi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Once connected to the VM, enable IIS by opening the Control Panel and navigating to Turn Windows Features On or Off. Scroll down to locate Internet Information Services (IIS) and select the checkbox to activate it.
 </p>
 <br />
+
 <p>
+<img src="https://i.imgur.com/jdy6kVT.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Open IIS Manager and restart the server. Once inside IIS manager go to Sites->Default->osTicket on the right, click "Browse*.80" from there your default browser should open osTicket webserver.
+From the osTicket Installation folder, locate and install PHP Manager to proceed with the setup.
 </p>
-<img src="https://i.imgur.com/4AkTkV0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+
 <p>
+<img src="https://i.imgur.com/BraQ2Sp.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Go back into IIS manager and enable some extensions. To do this you have to go to Sites->Default->osTicket
-Then double click on PHP manager. Click on "Disable or enable an extension" Enable "php_intl.dll" & "php_opcache.dll" then refresh the osTicket webserver and obsereve the changes "Intl Extension" should now be enabled. 
+Within the same folder, install the Rewrite Module to continue configuring the environment.
 </p>
-<img src="https://i.imgur.com/APZgUTT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+
 <p>
+<img src="https://i.imgur.com/3G7QEou.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/BJ7pQXn.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Go back into c:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php rename the file to c:\inetpub\wwwroot\osTicket\include\ost-config.php
-Assign permissions to ost-config.php Disable inheritance->Removeall
-New Permissions->Everyone->all
+Create the directory C:\PHP. Unzip the file PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip) and extract all its contents into the C:\PHP directory.
 </p>
-<img src="https://i.imgur.com/1nYaYGe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+
 <p>
+<img src="https://i.imgur.com/vnapOUJ.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Afterwards continue setting up osTicket in the browser (click continue) then you will name the Helpdesk to your liking. Select a default email that will receive emails from customers who submit tickets. 
+Install VC_redist.x86.exe from the osTicket Installation folder to ensure the necessary Visual C++ Redistributable components are in place.
 </p>
-<img src="https://i.imgur.com/RmVk3q5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+
 <p>
-<p>Continue Setting up osticket in the browser MySQL Database: osTicket MySQL Username: root MySQL Password: Password1 Click “Install Now!”
-Congratulations, hopefully it is installed with no errors!
-Clean up
-Delete: C:\inetpub\wwwroot\osTicket\setup
-Set Permissions to “Read” only: C:\inetpub\wwwroot\osTicket\include\ost-config.php
-Login to the osTicket Admin Panel (http://localhost/osTicket/scp/login.php)
+<img src="https://i.imgur.com/6Ni4PkJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Install MySQL 5.5.62 (mysql-5.5.62-win32.msi) from the osTicket Installation folder to set up the MySQL database server.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/HFBKqHa.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Open IIS Manager as an administrator. Register PHP within IIS by configuring the necessary settings. Afterward, restart the server by selecting Restart in the IIS Manager.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/dUEDOI2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+From the osTicket-Installation-Files folder, unzip osTicket-v1.15.8.zip and copy the upload folder to C:\inetpub\wwwroot. Then, within C:\inetpub\wwwroot, rename the upload folder to osTicket.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/ofoOo0Z.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Return to IIS Manager and restart the server. Enable the necessary PHP extensions by navigating to Sites -> Default -> osTicket, then double-click PHP Manager. Select "Disable or enable an extension" and enable php_intl.dll, php_opcache.dll, and php_imap.dll. Afterward, refresh the osTicket web server and verify that the Intl Extension is now enabled.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/JEdBG6b.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Navigate to C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php and rename the file to ost-config.php in the same directory (C:\inetpub\wwwroot\osTicket\include).
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/vFIs9DL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Assign the appropriate permissions to ost-config.php by right-clicking the file and selecting Properties. In the Security tab, disable inheritance, remove all existing permissions, and grant Everyone full access.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/HZnNtf2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Finally, proceed with the osTicket setup in your browser by clicking Continue. Assign a name to your helpdesk as desired, and select a default email address to receive customer-submitted ticket notifications. Congrats! 
+</p>
+<br />
